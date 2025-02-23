@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Register Here</h2>
+        <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateEmail()">
+            
+            <label for="name">Full Name</label>
+            <input type="text" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" title="Please enter a valid email address">
+
+            <span id="email-error" class="error-message"></span>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required minlength="6">
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
